@@ -35,7 +35,13 @@ export const PortFolioCardComponent: FC<IPortfolioCard> = ({
               padding: showPadding ? "2rem" : "",
             }}
           >
-            <Image objectFit="cover" src={image} width={500} height={500} />
+            <Image
+              objectFit="cover"
+              src={image}
+              width={500}
+              height={500}
+              alt="portfolio-image"
+            />
           </div>
         </Fade>
 
@@ -56,8 +62,12 @@ export const PortFolioCardComponent: FC<IPortfolioCard> = ({
 
           <div className="stack_grid">
             {buttons && buttons.length > 0
-              ? buttons.map((button) => (
-                  <ButttonComponent outline={false} className="stack_button">
+              ? buttons.map((button, index) => (
+                  <ButttonComponent
+                    outline={false}
+                    className="stack_button"
+                    key={index}
+                  >
                     {button}
                   </ButttonComponent>
                 ))
@@ -87,8 +97,12 @@ export const PortFolioCardComponent: FC<IPortfolioCard> = ({
 
           <div className="stack_grid">
             {buttons && buttons.length > 0
-              ? buttons.map((button) => (
-                  <ButttonComponent outline={false} className="stack_button">
+              ? buttons.map((button, index) => (
+                  <ButttonComponent
+                    outline={false}
+                    className="stack_button"
+                    key={index}
+                  >
                     {button}
                   </ButttonComponent>
                 ))
@@ -103,7 +117,13 @@ export const PortFolioCardComponent: FC<IPortfolioCard> = ({
               padding: showPadding ? "2rem" : "",
             }}
           >
-            <Image objectFit="cover" src={image} width={500} height={500} />
+            <Image
+              objectFit="cover"
+              src={image}
+              width={500}
+              height={500}
+              alt="portfolio-image"
+            />
           </div>
         </Fade>
       </Container>
