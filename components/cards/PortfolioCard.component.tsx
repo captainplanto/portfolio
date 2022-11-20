@@ -110,8 +110,6 @@ export const PortFolioCardComponent: FC<IPortfolioCard> = ({
     );
   }
 };
-//display: grid;
-//grid-template-columns: 1fr 1fr 0.9fr 0.5fr;
 const Container = styled.div`
   margin-top: 15rem;
   margin-bottom: 15rem;

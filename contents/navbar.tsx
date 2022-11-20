@@ -7,10 +7,9 @@ export const items: { id: number; name: string }[] = [
     id: 2,
     name: "PORTFOLIO",
   },
-
   {
     id: 3,
-    name: "STACK",
+    name: "BLOG",
   },
   {
     id: 4,

@@ -13,17 +13,23 @@ export const NavBarComponent = () => {
   const dispatch = useAppDispatch();
   const handleClick = (id: number) => {
     setCurrentTab(id);
-    if (currentTab === 1) {
-      Router.push(`/`);
-    } else if (currentTab === 2) {
-      Router.push(`/portfolio`);
-    } else if (currentTab === 3) {
-      const anchor = document.querySelector("#stack-id");
-      anchor.scrollIntoView({ behavior: "smooth" });
-    } else if (currentTab === 4) {
-      dispatch(toggleModal(true));
-    } else {
-      return;
+
+    switch (currentTab) {
+      case 1:
+        Router.push(`/`);
+        break;
+      case 2:
+        Router.push(`/portfolio`);
+        break;
+      case 3:
+        Router.push(`/blog`);
+        break;
+      case 4:
+        dispatch(toggleModal(true));
+        break;
+
+      default:
+        break;
     }
   };
 
@@ -64,10 +70,7 @@ export const NavBarComponent = () => {
         <Navbar.Collapse>
           {items.map(({ id, name }) => (
             <Navbar.CollapseItem key={id}>
-              <Link
-                color="inherit"
-                onClick={() => handleClick(id)}
-              >
+              <Link color="inherit" onClick={() => handleClick(id)}>
                 {name}
               </Link>
             </Navbar.CollapseItem>

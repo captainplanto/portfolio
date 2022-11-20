@@ -15,6 +15,7 @@ export const LayOutComponent: FC<ILayout> = ({ children }) => {
 const LayOut = styled.div`
   width: 85%;
   margin: 0 auto;
+  overflow: hidden;
   @media screen and (max-width: 500px) {
     width: 90%;
   }
