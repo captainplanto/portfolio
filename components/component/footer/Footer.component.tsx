@@ -13,7 +13,14 @@ export const FooterComponent = () => {
   const dispatch = useAppDispatch();
   const navItems = [
     {
-      name: <Image src={logoWhite} objectFit="cover" width={50} />,
+      name: (
+        <Image
+          src={logoWhite}
+          objectFit="cover"
+          width={50}
+          alt="homepage-logo"
+        />
+      ),
     },
     {
       name: "HOME",

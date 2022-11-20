@@ -10,14 +10,13 @@ import { PortFolioCardComponent } from "../../../cards/PortfolioCard.component";
 */
 
 export const PortFolio: FC<IContent> = ({ projects, ...props }) => {
-
- 
   return (
     <Container>
       {projects && projects.length > 0 ? (
         projects.map(
           ({ id, image, title, description, slug, stacks }, index) => (
             <PortFolioCardComponent
+              key={id}
               id={id}
               image={image}
               title={title}
