@@ -3,10 +3,12 @@ import { AppState } from "../../store";
 
 export interface ModalState {
   isOpen: boolean;
+  isEven: boolean;
 }
 
 const initialState: ModalState = {
   isOpen: false,
+  isEven:false,
 };
 
 export const modalSlice = createSlice({
@@ -15,6 +17,11 @@ export const modalSlice = createSlice({
   reducers: {
     toggleModal: (state, action: PayloadAction<boolean>) => {
       state.isOpen = action.payload;
+    },
+
+
+     setIsEven: (state, action: PayloadAction<boolean>) => {
+      state.isEven = action.payload;
     },
   },
 });

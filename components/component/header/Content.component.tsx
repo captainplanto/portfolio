@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { content } from "../../../constants/const";
 import Fade from "react-reveal/Fade";
-import { FaUserTie } from "react-icons/fa";
 import { ButttonComponent } from "../../common/Button.component";
-
 
 export const ContentHeader = () => {
   const handleScrollTo = () => {
@@ -13,8 +11,8 @@ export const ContentHeader = () => {
   return (
     <Fade top>
       <Container>
-        <p>{content}</p>
-        <ButttonComponent outline icon={<FaUserTie />} onClick={handleScrollTo}>
+        <p className="content">{content}</p>
+        <ButttonComponent outline onClick={handleScrollTo}>
           ABOUT ME
         </ButttonComponent>
       </Container>
@@ -30,10 +28,9 @@ const Container = styled.div`
   font-size: 3rem;
   font-weight: 600;
   color: var(--main-dark-blue);
-  p {
+  .content {
     text-align: left;
     line-height: 1.3;
-    padding-top: 8px;
   }
   @media screen and (max-width: 820px) {
     width: 70%;

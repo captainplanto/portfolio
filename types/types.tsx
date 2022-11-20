@@ -22,14 +22,14 @@ export interface IResp {
   message: string;
   success: boolean;
 }
-// ()=>void |
+// ()=>void || string
 export interface IPortfolioCard {
   image: string;
   title: string;
   description: string;
   buttonText: string;
   color?: string;
-  id?: number | string;
+  id?: number;
   slug?: string;
   showPadding: boolean;
   buttons?: string[];
@@ -42,6 +42,7 @@ export interface IPortfolioDetailsCard {
   imageThree:string;
   title: string;
   subtitle: string;
+  url:string;
   snippet: string;
   background: string;
   color: string;
@@ -57,6 +58,7 @@ export interface IProject {
   description: string;
   slug: string;
   stacks: string[];
+  url:string;
   images: {
     imageOne: string;
     imageTwo: string;

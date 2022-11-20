@@ -3,7 +3,6 @@ import { FC, ReactNode } from "react";
 import styled from "styled-components";
 
 interface IButton {
-  icon?: string | ReactNode;
   link?: string;
   children: ReactNode;
   onClick?: (e: any) => void;
@@ -13,13 +12,13 @@ interface IButton {
 }
 
 export const ButttonComponent: FC<IButton> = ({
-  icon,
   link,
   children,
   onClick,
   className,
   style,
   outline,
+
   ...props
 }) => {
   if (link) {
@@ -31,8 +30,7 @@ export const ButttonComponent: FC<IButton> = ({
           className={className}
           $outline={outline && outline}
         >
-          <div className="div">
-            <div className="icon">{icon}</div>
+          <div>
             <p> {children}</p>
           </div>
         </CustomButton>
@@ -47,7 +45,7 @@ export const ButttonComponent: FC<IButton> = ({
       $outline={outline && outline}
     >
       <div>
-        <p className="p-2">{children}</p>
+        <p>{children}</p>
       </div>
     </CustomButton>
   );
@@ -66,23 +64,8 @@ const CustomButton = styled.button<{ $outline: boolean }>`
   transition: all 0.4s ease;
   margin: 1rem 0 1rem 0;
   cursor: pointer;
-  .div {
-    display: flex;
-    align-items: center;
-    .icon {
-      margin-left: 1rem;
-    }
-    p {
-      margin-left: 1rem;
-      text-align: center;
-      padding: 2rem 6rem 2rem 6rem;
-    }
-  }
-
   p {
-    letter-spacing: 5px !important;
-  }
-  .p-2 {
     padding: 2rem;
+    letter-spacing: 5px !important;
   }
 `;

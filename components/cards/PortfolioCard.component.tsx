@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
 import { Divider, Image } from "@nextui-org/react";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { ButttonComponent } from "../common/Button.component";
 import { IPortfolioCard } from "../../types/types";
-import router, { Router } from "next/router";
 
 export const PortFolioCardComponent: FC<IPortfolioCard> = ({
   image,
@@ -18,8 +17,16 @@ export const PortFolioCardComponent: FC<IPortfolioCard> = ({
   slug,
   ...props
 }) => {
-  return (
-    <>
+  const [size, setSize] = useState<number>(0);
+  useEffect(() => {
+    const findWidth = window.innerWidth;
+    setSize(findWidth);
+  }, []);
+
+  const remainder = id % 2;
+  //isEven
+  if (remainder !== 1 || size < 900) {
+    return (
       <Container>
         <Fade left>
           <div
@@ -31,7 +38,7 @@ export const PortFolioCardComponent: FC<IPortfolioCard> = ({
             <Image objectFit="cover" src={image} width={500} height={500} />
           </div>
         </Fade>
-        <div></div>
+
         <div className="about_me">
           <Fade right>
             <Divider />
@@ -40,13 +47,44 @@ export const PortFolioCardComponent: FC<IPortfolioCard> = ({
             <ButttonComponent
               outline={false}
               link={id ? `/portfolio/${slug}/${id}` : "/portfolio"}
-        
               className="button"
             >
               {buttonText.toUpperCase()}
             </ButttonComponent>
             <Divider />
           </Fade>
+
+          <div className="stack_grid">
+            {buttons && buttons.length > 0
+              ? buttons.map((button) => (
+                  <ButttonComponent outline={false} className="stack_button">
+                    {button}
+                  </ButttonComponent>
+                ))
+              : ""}
+          </div>
+        </div>
+      </Container>
+    );
+  } else {
+    //not even
+    return (
+      <Container>
+        <div className="about_me">
+          <Fade right>
+            <Divider />
+            <h1>{title.toUpperCase()}</h1>
+            <p>{description}</p>
+            <ButttonComponent
+              outline={false}
+              link={id ? `/portfolio/${slug}/${id}` : "/portfolio"}
+              className="button"
+            >
+              {buttonText.toUpperCase()}
+            </ButttonComponent>
+            <Divider />
+          </Fade>
+
           <div className="stack_grid">
             {buttons && buttons.length > 0
               ? buttons.map((button) => (
@@ -58,20 +96,31 @@ export const PortFolioCardComponent: FC<IPortfolioCard> = ({
           </div>
         </div>
 
-        <div></div>
+        <Fade left>
+          <div
+            style={{
+              backgroundColor: color,
+              padding: showPadding ? "2rem" : "",
+            }}
+          >
+            <Image objectFit="cover" src={image} width={500} height={500} />
+          </div>
+        </Fade>
       </Container>
-    </>
-  );
+    );
+  }
 };
-
+//display: grid;
+//grid-template-columns: 1fr 1fr 0.9fr 0.5fr;
 const Container = styled.div`
   margin-top: 15rem;
   margin-bottom: 15rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 0.9fr 0.5fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   font-size: 1.5rem;
   .about_me {
+    width: 30%;
     h1 {
       margin-top: 4rem;
       color: var(--main-dark-blue);

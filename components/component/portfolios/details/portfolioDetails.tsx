@@ -4,7 +4,7 @@ import { IContents} from "../../../../types/types";
 import { PortFolioDetailsCardComponent } from "../../../cards/PortFolioDetailsCard.component";
 
 export const PortFolioDetails: FC<IContents> = ({ projects, ...props }) => {
-  const { id, images, title, subtitle, description, background } = projects;
+  const { id, images, title, url, subtitle, description, background } = projects;
   if (projects) {
     return (
       <Container key={id}>
@@ -18,6 +18,7 @@ export const PortFolioDetails: FC<IContents> = ({ projects, ...props }) => {
           snippet={description}
           background={background}
           color="var(--main-cyan)"
+          url={url}
         />
       </Container>
     );

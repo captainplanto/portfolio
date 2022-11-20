@@ -12,6 +12,7 @@ export const PortFolioDetailsCardComponent: FC<IPortfolioDetailsCard> = ({
   imageThree,
   title,
   subtitle,
+  url,
   snippet,
   background,
   color,
@@ -23,9 +24,9 @@ export const PortFolioDetailsCardComponent: FC<IPortfolioDetailsCard> = ({
         <Image
           src={imageOne}
           alt={`${title} image`}
-          width={700}
+          width={900}
           height={500}
-          objectFit="none"
+          objectFit="cover"
           className="image-one"
         />
         <Image
@@ -33,7 +34,7 @@ export const PortFolioDetailsCardComponent: FC<IPortfolioDetailsCard> = ({
           alt={`${title} image`}
           width={900}
           height={500}
-          objectFit="none"
+          objectFit="cover"
           className="image-two"
         />
       </div>
@@ -44,7 +45,9 @@ export const PortFolioDetailsCardComponent: FC<IPortfolioDetailsCard> = ({
             <p className="title">{title}</p>
             <p className="snippet">{snippet}</p>
             <p className="subtitle">{subtitle}</p>
-            <ButttonComponent outline={false}>Visit Website</ButttonComponent>
+            <ButttonComponent outline={false} link={`${url}`}>
+              Visit Repository
+            </ButttonComponent>
             <Divider />
           </div>
         </div>
@@ -57,9 +60,9 @@ export const PortFolioDetailsCardComponent: FC<IPortfolioDetailsCard> = ({
 
           <div className="static_preview">
             <h1>Static Preview</h1>
-            <Image src={imageOne} alt={title} objectFit="none" />
-            <Image src={imageTwo} alt={title} objectFit="none" />
-            <Image src={imageThree} alt={title} objectFit="none" />
+            <Image src={imageOne} alt={title} objectFit="cover" />
+            <Image src={imageTwo} alt={title} objectFit="cover" />
+            <Image src={imageThree} alt={title} objectFit="cover" />
           </div>
         </div>
       </div>
@@ -77,11 +80,10 @@ const Container = styled.div<{ color: string }>`
     padding: 4rem;
     margin-bottom: 8rem;
     @media screen and (max-width: 820px) {
-      .nextui-c-kbhVdb-iguHdYf-css {
-        object-fit: cover;
-        height: 150px;
+      .nextui-c-iVzbCs-ibnpwlE-css {
+        height: 100px;
       }
-      height: 200px;
+
       padding: 1rem 4rem 1rem 4rem;
     }
   }

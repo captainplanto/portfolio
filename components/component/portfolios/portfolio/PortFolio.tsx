@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import styled from "styled-components";
 import { IContent } from "../../../../types/types";
 import { PortFolioCardComponent } from "../../../cards/PortfolioCard.component";
@@ -10,6 +10,8 @@ import { PortFolioCardComponent } from "../../../cards/PortfolioCard.component";
 */
 
 export const PortFolio: FC<IContent> = ({ projects, ...props }) => {
+
+ 
   return (
     <Container>
       {projects && projects.length > 0 ? (
