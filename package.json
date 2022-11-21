@@ -15,8 +15,10 @@
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
+    "eslint": "8.15.0",
+    "eslint-config-next": "12.1.6",
     "l": "^0.6.0",
-    "next": "13.0.2",
+    "next": "^12.3.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
@@ -25,9 +27,7 @@
     "react-reveal": "^1.2.2",
     "react-scroll": "^1.8.8",
     "react-scroll-into-view": "^1.12.0",
-    "styled-components": "^5.3.5",
-     "eslint": "8.15.0",
-    "eslint-config-next": "12.1.6"
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/react": "18.0.9",
