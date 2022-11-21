@@ -143,12 +143,9 @@ export const portfolio: IProject[] = [
     url: "",
 
     images: {
-      imageOne:
-        "https://res.cloudinary.com/captainkoder/image/upload/v1668897470/portfolio/images/search-jobs_mmbfbf.png",
-      imageTwo:
-        "https://res.cloudinary.com/captainkoder/image/upload/v1668897472/portfolio/images/search-job_tpbdld.png",
-      imageThree:
-        "https://res.cloudinary.com/captainkoder/image/upload/v1668897474/portfolio/images/jobby-home_vtjvyt.png",
+      imageOne:"https://res.cloudinary.com/captainkoder/image/upload/v1668897470/portfolio/images/search-jobs_mmbfbf.png",
+      imageTwo:"https://res.cloudinary.com/captainkoder/image/upload/v1668897474/portfolio/images/jobby-home_vtjvyt.png",
+      imageThree:"https://res.cloudinary.com/captainkoder/image/upload/v1668897472/portfolio/images/search-job_tpbdld.png",
     },
     background: "This project took 1 week to complete. Job search seems to be one of the challenging factors for young graduates and already working folks. People who currently have a job are constantly in search of better opportunity and young graduate who never worked before are constantly in search of jobs. A platform like jobby helps these folks to achieve their dreams and aspirations.",
   },

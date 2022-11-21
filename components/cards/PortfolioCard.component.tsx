@@ -179,30 +179,3 @@ const Container = styled.div`
   }
 `;
 
-//Refactor: Change the inline-styling;
-
-/*
-
-   <Div className="videos">
-        <video
-          width="100%"
-          height="100%"
-          autoPlay
-          loop
-          style={{ objectFit: "contain" }}
-        >
-          <source src="https://res.cloudinary.com/captainkoder/video/upload/v1668459216/portfolio/videos/Anthony_Awoniyi_Frontend-Engineer_-_Google_Chrome_-_14_November_2022_k0fe09.mp4" />
-        </video>
-      </Div>
-const Div = styled.div`
-  display: flex;
-  justify-content: right;
-  margin-bottom: 1rem;
-  position: relative;
-  height: 420px;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 20px;
-  border: 1px solid var(--main-white);
-`;
-*/

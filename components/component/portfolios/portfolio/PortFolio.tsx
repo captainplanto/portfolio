@@ -2,7 +2,6 @@ import { FC } from "react";
 import styled from "styled-components";
 import { IContent } from "../../../../types/types";
 import { PortFolioCardComponent } from "../../../cards/PortfolioCard.component";
-
 /*const showColor = (id: number) => {
     id === 1 ? "red" : id === 2 ? "green" : id === 3 ? "grey" : "black";
   };
