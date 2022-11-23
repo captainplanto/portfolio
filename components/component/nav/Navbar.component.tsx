@@ -1,38 +1,55 @@
 import { Navbar, Link } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
 import Router from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { logo } from "../../../constants/const";
-import { items } from "../../../contents/navbar";
 import { toggleModal } from "../../../redux/features/portfolio/portfolio.slice";
 import { useAppDispatch } from "../../../redux/hook";
 
 export const NavBarComponent = () => {
-  const [currentTab, setCurrentTab] = useState<number>(1);
+  const items: {
+    id: number;
+    name: string;
+    key: string;
+    action: () => void;
+  }[] = [
+    {
+      id: 1,
+      name: "HOME",
+      key: "Home",
+      action: () => Router.push("/"),
+    },
+    {
+      id: 2,
+      key: "Portfolio",
+      name: "PORTFOLIO",
+      action: () => Router.push("/portfolio"),
+    },
+    {
+      id: 3,
+      name: "BLOG",
+      key: "Blog",
+      action: () => Router.push("/blog"),
+    },
+    {
+      id: 4,
+      name: "CONTACT ME",
+      key: "Contact Me",
+      action: () => dispatch(toggleModal(true)),
+    },
+  ];
+  const [currentTab, setCurrentTab] = useState<number>(0);
   const dispatch = useAppDispatch();
-  const handleClick = (id: number) => {
-    setCurrentTab(id);
-
-    switch (currentTab) {
-      case 1:
-        Router.push(`/`);
-        break;
-      case 2:
-        Router.push(`/portfolio`);
-        break;
-      case 3:
-        Router.push(`/blog`);
-        break;
-      case 4:
-        dispatch(toggleModal(true));
-        break;
-
-      default:
-        break;
-    }
+  const handleClick = (index: number) => {
+    localStorage.setItem("tab", JSON.stringify(index));
+    setCurrentTab(index);
   };
-
+  useEffect(() => {
+    const tabIndex = localStorage.getItem("tab");
+    const result = tabIndex ? JSON.parse(tabIndex) : "";
+    setCurrentTab(result);
+  }, []);
   return (
     <Container>
       <Navbar isBordered variant="sticky">
@@ -53,13 +70,15 @@ export const NavBarComponent = () => {
           variant="highlight-solid-rounded"
           activeColor="secondary"
         >
-          {items.map(({ id, name }) => (
+          {items.map(({ id, name, action, key }, index) => (
             <div key={id}>
               <Navbar.Link
-                // style={currentTab === id ? secondaryColor : mainColor}
-                // href="#"
-                isActive={currentTab === id ? true : false}
-                onClick={() => handleClick(id)}
+             
+                isActive={currentTab === index ? true : false}
+                onClick={() => {
+                  action && action();
+                  handleClick(index);
+                }}
               >
                 {name}
               </Navbar.Link>
@@ -68,9 +87,15 @@ export const NavBarComponent = () => {
         </Navbar.Content>
 
         <Navbar.Collapse>
-          {items.map(({ id, name }) => (
-            <Navbar.CollapseItem key={id}>
-              <Link color="inherit" onClick={() => handleClick(id)}>
+          {items.map(({ id, name, action }, index) => (
+            <Navbar.CollapseItem key={id} style={{ paddingBottom: "2rem" }}>
+              <Link
+                color="inherit"
+                onClick={() => {
+                  action && action();
+                  handleClick(index);
+                }}
+              >
                 {name}
               </Link>
             </Navbar.CollapseItem>
@@ -103,9 +128,4 @@ const Container = styled.div`
   }
 `;
 
-const mainColor = {
-  color: "var(--main-dark-blue)",
-};
-const secondaryColor = {
-  color: "var(--main-white)",
-};
+

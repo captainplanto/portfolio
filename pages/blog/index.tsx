@@ -1,8 +1,12 @@
 import { NextPage } from "next";
-import { BlogComponent } from "../../components/cards/Blog.component";
+import { BlogIndex } from "../../components/component/blog/BlogIndex";
 
 const Blog: NextPage = () => {
-  return <BlogComponent />;
+  return (
+    <>
+      <BlogIndex />
+    </>
+  );
 };
 
 export default Blog;

@@ -39,16 +39,14 @@ export interface IPortfolioDetailsCard {
   id: number;
   imageOne: string;
   imageTwo: string;
-  imageThree:string;
+  imageThree: string;
   title: string;
   subtitle: string;
-  url:string;
+  url: string;
   snippet: string;
   background: string;
   color: string;
 }
-
-
 
 export interface IProject {
   id: number;
@@ -58,11 +56,22 @@ export interface IProject {
   description: string;
   slug: string;
   stacks: string[];
-  url:string;
+  url: string;
   images: {
     imageOne: string;
     imageTwo: string;
-    imageThree:string;
+    imageThree: string;
   };
   background: string;
+}
+
+export interface IContentArray {
+  id: number;
+  heading: string;
+  text: string;
+}
+export interface IService {
+  title: string;
+  subtitle: string;
+  contents: IContentArray[];
 }
