@@ -31,19 +31,20 @@ export const InputComponent = () => {
         onClearClick={reset}
         type="email"
         placeholder="Enter your email address"
+        aria-label="text-box"
       />
 
-      <Input clearable placeholder="Enter your name" />
+      <Input clearable placeholder="Enter your name"   aria-label="text-box"/>
       <Div>
-        <Input clearable placeholder="Enter your phone number" type="number" />
+        <Input clearable placeholder="Enter your phone number" type="number"   aria-label="text-box"/>
       </Div>
-      <Textarea placeholder="Enter your request here." />
+      <Textarea placeholder="Enter your request here."  aria-label="text-box"/>
     </>
   );
 };
 
 const Div = styled.div`
-input::-webkit-outer-spin-button,
+  input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
