@@ -1,4 +1,3 @@
-import { useAppSelector } from "../../redux/hook";
 import { InputComponent } from "../component/about/Input.component";
 import { ModalComponent } from "./Modal.component";
 
